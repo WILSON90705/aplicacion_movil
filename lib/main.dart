@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colours/colores.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,11 +36,11 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
     'Bebidas',
   ];
 
-  static const Color _bg = Color(0xFFF7F1E8);
-  static const Color _orange = Color(0xFFE85D33);
+  static const Color _bg = AppColors.bg;
+  static const Color _orange = AppColors.orange;
 
   // Negro translúcido para las sombras (~8% de opacidad)
-  static const Color _shadow = Color(0x14000000);
+  static const Color _shadow = AppColors.shadow;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,7 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black87,
+                  color: AppColors.black87,
                 ),
               ),
               const SizedBox(height: 16),
@@ -70,6 +71,8 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
               _buildSectionHeader(),
               const SizedBox(height: 12),
               _buildFeaturedCard(),
+              const SizedBox(height: 20),
+              _buildSecondCard(),
               const SizedBox(height: 20),
             ],
           ),
@@ -90,19 +93,19 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: Colors.black87,
+                color: AppColors.black87,
               ),
             ),
             Text(
               'Cocina Editorial Moderna',
-              style: TextStyle(fontSize: 13, color: Colors.black54),
+              style: TextStyle(fontSize: 13, color: AppColors.black87),
             ),
           ],
         ),
         // Cuando tengas una imagen real, usa backgroundImage: NetworkImage(...)
         CircleAvatar(
           radius: 22,
-          backgroundColor: Colors.black12,
+          backgroundColor: AppColors.black12,
           child: Icon(Icons.person, color: Colors.black45),
         ),
       ],
@@ -112,10 +115,14 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
   Widget _buildSearchBar() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
-          BoxShadow(color: _shadow, blurRadius: 10, offset: Offset(0, 4)),
+          BoxShadow(
+            color: AppColors.shadow,
+            blurRadius: 10,
+            offset: Offset(0, 4),
+          ),
         ],
       ),
       child: const TextField(
@@ -176,7 +183,7 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
         Text(
           'Ver todo',
           style: TextStyle(
-            color: _orange,
+            color: AppColors.orange,
             fontWeight: FontWeight.w600,
             fontSize: 14,
           ),
@@ -188,10 +195,14 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
   Widget _buildFeaturedCard() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [
-          BoxShadow(color: _shadow, blurRadius: 16, offset: Offset(0, 6)),
+          BoxShadow(
+            color: AppColors.shadow,
+            blurRadius: 16,
+            offset: Offset(0, 6),
+          ),
         ],
       ),
       clipBehavior: Clip.antiAlias,
@@ -205,12 +216,12 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
               'assets/images/images.jpg', // reemplaza con tu imagen
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) => Container(
-                color: Colors.grey.shade300,
+                color: AppColors.grey,
                 child: const Center(
                   child: Icon(
                     Icons.restaurant,
                     size: 48,
-                    color: Colors.black38,
+                    color: AppColors.black38,
                   ),
                 ),
               ),
@@ -229,7 +240,7 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        color: AppColors.black87,
                       ),
                     ),
                     Text(
@@ -237,7 +248,7 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: _orange,
+                        color: AppColors.orange,
                       ),
                     ),
                   ],
@@ -248,7 +259,7 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
                   'cerveza y especias tradicionales.',
                   style: TextStyle(
                     fontSize: 13,
-                    color: Colors.black54,
+                    color: AppColors.black45,
                     height: 1.4,
                   ),
                 ),
@@ -258,13 +269,13 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
                   children: [
                     const Row(
                       children: [
-                        Icon(Icons.star, color: Colors.amber, size: 18),
+                        Icon(Icons.star, color: AppColors.amber, size: 18),
                         SizedBox(width: 4),
                         Text(
                           '4.9 (42 reseñas)',
                           style: TextStyle(
                             fontSize: 13,
-                            color: Colors.black87,
+                            color: AppColors.black87,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -274,12 +285,123 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
                       width: 40,
                       height: 40,
                       decoration: const BoxDecoration(
-                        color: _orange,
+                        color: AppColors.orange,
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
                         Icons.add,
-                        color: Colors.white,
+                        color: AppColors.white,
+                        size: 22,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSecondCard() {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [
+          BoxShadow(
+            color: AppColors.shadow,
+            blurRadius: 16,
+            offset: Offset(0, 6),
+          ),
+        ],
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Imagen del platillo
+          AspectRatio(
+            aspectRatio: 16 / 10,
+            child: Image.asset(
+              'assets/images/images.jpg', // reemplaza con tu imagen
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Container(
+                color: AppColors.grey,
+                child: const Center(
+                  child: Icon(
+                    Icons.restaurant,
+                    size: 48,
+                    color: AppColors.black38,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Sopa de pescado',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.black87,
+                      ),
+                    ),
+                    Text(
+                      '\$25.50',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.orange,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                const Text(
+                  'Sopa caliente de pescado con verduras y especias tradicionales.',
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: AppColors.black45,
+                    height: 1.4,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Row(
+                      children: [
+                        Icon(Icons.star, color: AppColors.amber, size: 18),
+                        SizedBox(width: 4),
+                        Text(
+                          '2.0 (50 reseñas)',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: AppColors.black87,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                        color: AppColors.orange,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.add,
+                        color: AppColors.white,
                         size: 22,
                       ),
                     ),
