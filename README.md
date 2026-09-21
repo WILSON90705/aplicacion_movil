@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # restaurante
 
 A new Flutter project.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# aplicacion_movil
+>>>>>>> f220278fec3e225e7618aa5939b563cf41b98f1a
