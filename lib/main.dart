@@ -74,6 +74,8 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
               const SizedBox(height: 20),
               _buildSecondCard(),
               const SizedBox(height: 20),
+              _buildFOOTER(),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -325,7 +327,7 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
           AspectRatio(
             aspectRatio: 16 / 10,
             child: Image.asset(
-              'assets/images/images.jpg', // reemplaza con tu imagen
+              'assets/images/sopa_de_pescado.jpg', // reemplaza con tu imagen
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) => Container(
                 color: AppColors.grey,
@@ -410,6 +412,43 @@ class _SaborHomeScreenState extends State<SaborHomeScreen> {
               ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFOOTER() {
+    final iconMap = <String, IconData>{
+      'Inicio': Icons.home,
+      'Búsqueda': Icons.search,
+      'Carrito': Icons.shopping_cart,
+      'Favoritos': Icons.favorite,
+    };
+
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          for (var entry in iconMap.entries)
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(entry.value, color: AppColors.black45),
+                const SizedBox(height: 4),
+                Text(
+                  entry.key,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: AppColors.black45,
+                  ),
+                ),
+              ],
+            ),
         ],
       ),
     );
